@@ -8,13 +8,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="manifest" href="site.webmanifest">
+<!--         <link rel="manifest" href="site.webmanifest"> -->
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" th:href="@{/css/normalize.css}">
         <link rel="stylesheet" th:href="@{/css/main.css}">
-        <script th:src="@{/js/vendor/modernizr-3.6.0.min.js}"></script>
+<!--         <script th:src="@{/js/vendor/modernizr-3.6.0.min.js}"></script> -->
     </head>
 
     <body>
@@ -22,22 +22,31 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-        <header layout:fragment="header">
-            <h1>My website</h1>
-        </header>
-        <!-- content body -->
-        <div layout:fragment="content">
-            <p>Page content goes here</p>
-        </div>
-        <footer layout:fragment="footer">
-            <h1>My Footer</h1>
-        </footer>
+       <div class="page-header">
+       		<h1>
+       			Boot06 Project <small>for Spring MVC + JPA</small>
+       		</h1>
+       </div>
+       
+       <div class="panel panel-default" layout:fragment="content">
+       
+       </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script th:src="@{/js/vendor/jquery-3.3.1.min.js}"><\/script>')</script>
         <script th:src="@{/js/plugins.js}"></script>
         <script th:src="@{/js/main.js}"></script>
 
+		<!-- 합쳐지고 최소화된 최신 CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		
+		<!-- 부가적인 테마 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		
+		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+		
         <!-- custom javascript -->
         <th:block layout:fragment="script"></th:block>
 
