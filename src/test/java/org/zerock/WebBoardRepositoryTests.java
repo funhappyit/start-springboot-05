@@ -35,7 +35,7 @@ public class WebBoardRepositoryTests {
 			repo.save(board);
 		});
 	}
-	*/
+	
 	@Test
 	public void testList1() {
 		Pageable pageable = PageRequest.of(0, 20, Direction.DESC, "bno");
@@ -47,8 +47,18 @@ public class WebBoardRepositoryTests {
 		result.getContent().forEach(board->log.info(""+board));
 		
 	}
+	*/
+	@Test
+	public void testList2() {
+		Pageable pageable = PageRequest.of(0, 20, Direction.DESC, "bno");
 		
+		Page<WebBoard> result = repo.findAll(repo.makePredicate("t","10"), pageable);
 		
+		log.info("PAGE: "+result.getPageable());
+		log.info("---------------------------------");
+		result.getContent().forEach(board->log.info(""+board));
+		
+	}
 	
 	
 	
