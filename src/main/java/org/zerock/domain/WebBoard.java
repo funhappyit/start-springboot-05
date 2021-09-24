@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +44,9 @@ public class WebBoard {
 	@UpdateTimestamp
 	private Timestamp updatedate;
 	
-	@OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
-	private List<WebReplay> replies;
+
+	@JsonIgnore
+	@OneToMany(mappedBy="board", fetch=FetchType.LAZY)
+	private List<WebReply> replies;
 	
 }

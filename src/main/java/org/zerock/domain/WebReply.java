@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +26,7 @@ import lombok.ToString;
 @Table(name="tbl_webreplies")
 @EqualsAndHashCode(of="rno")
 @ToString(exclude = "board")
-public class WebReplay {
+public class WebReply {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +41,7 @@ public class WebReplay {
 	@UpdateTimestamp
 	private Timestamp updatedate;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	private WebBoard board;
 	
