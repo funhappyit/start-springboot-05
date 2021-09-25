@@ -1,5 +1,7 @@
 package org.zerock;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
@@ -52,11 +54,9 @@ public class WebBoardRepositoryTests {
 	public void testList2() {
 		Pageable pageable = PageRequest.of(0, 20, Direction.DESC, "bno");
 		
-		Page<WebBoard> result = repo.findAll(repo.makePredicate("t","10"), pageable);
+		//List<Object[]> list = repo.getListWithQuery(pageable);
 		
-		log.info("PAGE: "+result.getPageable());
-		log.info("---------------------------------");
-		result.getContent().forEach(board->log.info(""+board));
+		//list.forEach(arr -> log.info(Arrays.toString(arr)));
 		
 	}
 	
