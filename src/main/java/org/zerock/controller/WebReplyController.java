@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +32,7 @@ public class WebReplyController {
 	@Autowired //setter를 만들어서 처리하는 것이 정석이지만...
 	private WebReplyRepository replyRepo;
 	
+	//댓글 저장
 	@Transactional
 	@PostMapping("/{bno}")
 	public ResponseEntity<List<WebReply>> addReply(
@@ -50,7 +53,7 @@ public class WebReplyController {
 		return new ResponseEntity<>(getListByBoard(board), HttpStatus.CREATED);
 		
 	}
-	
+	//댓글 삭제 
 	@Transactional
 	@DeleteMapping("/{bno}/{rno}")
 	public ResponseEntity<List<WebReply>> remove(
@@ -68,7 +71,9 @@ public class WebReplyController {
 		return  new ResponseEntity<>(getListByBoard(board), HttpStatus.OK);
 		
 	}
-	
+	//댓글 수정
+	@Transactional
+	@PutMapping("/{bno}")
 	public ResponseEntity<List<WebReply>> modify(@PathVariable("bno")Long bno,
 			@RequestBody WebReply reply){
 		log.info("modify reply: "+reply);
@@ -83,11 +88,24 @@ public class WebReplyController {
 		return new ResponseEntity<>(getListByBoard(board),HttpStatus.CREATED);		
 	}
 	
+	@GetMapping("/{bno}")
+	public ResponseEntity<List<WebReply>> getReplies(
+			@PathVariable("bno")Long bno
+			){
+		log.info("get All Replies....................");
+		
+		WebBoard board = new WebBoard();
+		board.setBno(bno);
+		return new ResponseEntity<>(getListByBoard(board),HttpStatus.OK);
+		
+	}
+	
+	
 	
 	
 	
 	private List<WebReply> getListByBoard(WebBoard board) throws RuntimeException{
-		log.info("getListByBoard...."+board);
+	//	log.info("getListByBoard....",board);
 		
 		return replyRepo.getRepliesOfBoard(board);
 	}
