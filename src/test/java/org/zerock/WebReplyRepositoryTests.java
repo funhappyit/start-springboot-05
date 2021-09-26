@@ -23,7 +23,7 @@ public class WebReplyRepositoryTests {
 	
 	@Test
 	public void testInsertReplies() {
-		Long[] arr = {304L, 303L, 300L};
+		Long[] arr = {100L, 101L, 102L};
 		
 		Arrays.stream(arr).forEach(num->{
 			WebBoard board = new WebBoard();

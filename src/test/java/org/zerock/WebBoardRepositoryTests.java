@@ -24,7 +24,7 @@ public class WebBoardRepositoryTests {
 	
 	@Autowired
 	WebBoardRepository repo;
-	/*
+	
 	@Test
 	public void insertBoardDummies() {
 		IntStream.range(0, 300).forEach(i->{
@@ -37,7 +37,7 @@ public class WebBoardRepositoryTests {
 			repo.save(board);
 		});
 	}
-	
+	/*
 	@Test
 	public void testList1() {
 		Pageable pageable = PageRequest.of(0, 20, Direction.DESC, "bno");
@@ -49,7 +49,7 @@ public class WebBoardRepositoryTests {
 		result.getContent().forEach(board->log.info(""+board));
 		
 	}
-	*/
+	
 	@Test
 	public void testList2() {
 		Pageable pageable = PageRequest.of(0, 20, Direction.DESC, "bno");
@@ -59,7 +59,7 @@ public class WebBoardRepositoryTests {
 		//list.forEach(arr -> log.info(Arrays.toString(arr)));
 		
 	}
-	
+	*/
 	
 	
 }
