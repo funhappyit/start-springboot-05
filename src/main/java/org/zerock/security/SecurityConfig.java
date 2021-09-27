@@ -44,20 +44,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// http.logout().invalidateHttpSession(true);
 		http.logout().logoutUrl("/logout").invalidateHttpSession(true);
 
-		 http.userDetailsService(zerockUsersService);
+		http.userDetailsService(zerockUsersService);
 
 	
 
 	}
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-		log.info("security config..............");
+		/*
+		 스프링 시큐리티가 데이터베이스를 연동하는 방법은 크게 
+		 1) 직접 SQL 등을 지정해서 처리하는 방법 
+		 2) 기존에 작성된 Repository나 서비스 객체들을 이용해서 별도로 시큐리티 관련 서비스를 개발하는 방법  
+		 */
 
 
 		String query1 = "SELECT uid username, upw password, true enabled FROM tbl_members WHERE uid= ?";
 		
 		String query2 = "SELECT member uid, role_name role FROM tbl_member_roles WHERE member = ?";
 		
+		/*
+		 사용자에 대한 계정 정보와  
+		  
+		  
+		  
+		 */
 		auth.jdbcAuthentication()
 		.dataSource(dataSource)
 		.usersByUsernameQuery(query1)
