@@ -1,4 +1,3 @@
-  
 package org.zerock.security;
 
 import java.util.Arrays;
@@ -18,15 +17,18 @@ import lombok.extern.java.Log;
 @Log
 public class ZerockUsersService implements UserDetailsService {
 
+
 	@Autowired
 	MemberRepository repo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		User sampleUser = new User(username,"{noop}1111",Arrays.asList(new SimpleGrantedAuthority("ROLE_MANAGER")));
 		
-		return sampleUser;
+//		User sampleUser = new User(username,"{noop}1111",
+//				Arrays.asList(new SimpleGrantedAuthority("ROLE_MANAGER")));
+		
+		return repo.findById(username).filter(m->m != null).map(m -> new ZerockSecurityUser(m)).get();
 	}
 
 }

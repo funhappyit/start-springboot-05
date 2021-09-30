@@ -11,11 +11,6 @@ import lombok.extern.java.Log;
 @Log
 public class SampleController {
 	
-	@GetMapping("/")
-	public String index() {
-		log.info("index");
-		return "index";
-	}
 	
 	@RequestMapping("/guest")
 	public void forGuest() {
@@ -31,16 +26,7 @@ public class SampleController {
 	public void forAdmin() {
 		log.info("admin");		
 	}
-	@GetMapping("/login")
-	public void login() {
-		
-	}
-	
-	@PostMapping("/login")
-	public String loginTest() {
-		return "redirect:/boards/list";
-	}
-	
+
 	@GetMapping("/accessDenied")
 	public void accessDenied() {
 		

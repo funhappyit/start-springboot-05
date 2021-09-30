@@ -31,7 +31,7 @@ public class ZerockSecurityUser extends User {
 		List<GrantedAuthority> list = new ArrayList<>();
 
 		roles.forEach(role -> list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role.getRoleName())));
-
+		
 		return list;
 	}
 
