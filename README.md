@@ -6,8 +6,7 @@
 * front-end: bootstrap,javascript 등
 
 
-## pc
-
+## PC
 ### 리스트
 ![image](https://user-images.githubusercontent.com/74157075/135454160-3579dc61-5117-4c1b-b6d7-7564f448dee3.png)
 ### 검색
